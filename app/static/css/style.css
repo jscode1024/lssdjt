@@ -1,0 +1,106 @@
+.web_header{
+    background: url(../images/web_top.jpg) no-repeat;
+    background-size: cover;
+    padding: 42px 0;
+}
+.main-navigation {
+    text-align: center;
+    background: #ffffff;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 2px solid #e1e1e1;
+}
+.navbar-header {
+    text-align: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.navbar-header i {
+    height: 56px;
+    line-height: 56px;
+    font-size: 2em;
+    cursor: pointer;
+}
+/* .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+} */
+/* .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    content: "\f0c9";
+} */
+.main-navigation .menu {
+    padding: 0;
+    margin: 0;
+}
+.main-navigation .menu li.nav-current {
+    border-bottom: 2px solid #e67e22;
+    margin-bottom: -2px;
+}
+.main-navigation .menu li {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+}
+.main-navigation .menu li a {
+    color: #505050;
+    line-height: 4em;
+    display: block;
+    padding: 0 21px;
+}
+.index_bg{
+    background: url(../images/index_background.jpg) no-repeat;
+    background-size: cover;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+@media (min-width: 768px){
+    .navbar-header {
+        float: left;
+    }
+    .nav-toggle-button {
+        display: none;
+    }
+    .navbar-collapse.collapse {
+        display: block!important;
+        height: auto!important;
+        padding-bottom: 0;
+        overflow: visible!important;
+    }
+}
+@media (max-width: 767px){
+    .main-navigation .menu li {
+        display: block;
+    }
+    .main-navigation {
+        text-align: left;
+    }
+}
+.cuowu_cont{
+    margin-top: 50px;
+}
+.cuowu{
+    margin:5px auto;
+    text-align: center;
+}
+.cuowu span{
+    display: block;
+    color: #999999;
+    font-size: 36px;
+}

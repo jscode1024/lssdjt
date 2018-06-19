@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Keywords" content="光明,光明面,bright,face,navigation,bosim.club,bosim,勃学,失败人士,bosimao,波斯猫,猫,cat,段子,笑话,QQ" />
+    <meta name="Description" content="光明面" />
+    <meta name="google-site-verification" content="7yZFuf3zoYKOfych2EHoR1zxWIEiHM-gMSd6CXdldbI" />
+    <link rel="icon" href="{{url_for('static',filename='images/icon.png')}}" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/frontstyle.css')}}">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{url_for('static',filename='js/jquery-3.1.0.min.js')}}"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="{{url_for('static',filename='js/jquery-migrate-3.0.0.min.js')}}"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6868990618113157",
+        enable_page_level_ads: true
+    });
+    </script>
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body>
+    <header class="web_header">
+        <div class="container">
+            <div class="row">
+                <h2>{% block slogan %}{% endblock %}</h2>
+            </div>
+        </div>
+    </header>
+    <nav class="main-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="navbar-header">
+                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="glyphicon glyphicon-align-justify"></i>
+                        </span>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main-menu">
+                        <ul class="menu">
+                            <li class="" role="presentation">
+                                <a href="{{url_for('home.home_index')}}">首页</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="{{url_for('home.home_lssdjt')}}">历史上的今天</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="{{url_for('home.home_duanzi')}}">段子</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="{{url_for('home.home_qqsm',qqnum='none')}}">QQ测吉凶</a>
+                            </li>
+                            <!-- <li role="presentation">
+                                <a href="">XXXX</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="">关于</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+        <ul class="nav nav-tabs">
+            <div id="footer">
+                <br>
+                <center>
+                    <a href="http://www.miitbeian.gov.cn" target="_blank">Copyright © 2017 光明面·个人导航与网址,粤ICP备16093407号-2, All Rights Reserved。</a>
+                </center>
+            </div>
+        </ul>
+</body>
+
+{% block js %}
+{% endblock %}
+
+</html>

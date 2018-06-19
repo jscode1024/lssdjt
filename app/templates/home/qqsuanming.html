@@ -1,0 +1,77 @@
+{% extends "home/main.html" %}{%block title %}QQ号码测吉凶{% endblock %}{% block slogan %}{{slogan}}{% endblock %} {% block css
+%}
+<link rel="stylesheet" href="{{url_for('static',filename='css/lssdjt.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/duanzi.css')}}"> {% endblock %} {% block content %}
+<div class="container qqsm">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="title">
+                        <h2>QQ号码测吉凶</h2>
+                    </div>
+                    <div class="inform">
+                        <form method="post" action="" name="buyiju" onsubmit="return submitchecken();">
+                            QQ号码：
+                            {{form.qqtext}}
+                            {{form.qqsubmit}}
+                        </form>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible" style="display:none;" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Warning!</strong> 请输入测试QQ号！
+                    </div>
+                    <div class="alert alert-warning alert-dismissible" style="display:none;" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Warning!</strong> QQ号必须是数字哦！
+                    </div>
+                    <div class="content">
+                        {% if not qqnum or not result %}
+                        <p>　测试你的QQ号码吉凶，查看你的QQ号给你带来的性格暗示和影响！</p>
+                        <p>　我们的生活几乎离不号码，如电话号码、手机号码、车牌号码、门牌号码等等。号码为什么会影响一个人的运势？其实号码也包含有一定的吉凶数理，这就像姓名会影响运势命运的意义是一样的。</p>
+                        <p>　气有旺衰之气，数亦有吉凶之数。号码，数也；故举凡号码，均与周易数理具有吉凶关联，就像风水、姓名会影响运势命运的意义是一样的。</p>
+                        <p>　与您生活密不可分的各种生活号码，也有吉凶之分！号码的数理吉凶就像风水一样会影响主人的运势命理，与您的生活息息相关，也是您与很多人沟通的桥梁，以五行数理分析号码吉凶，并通过号码分析主人的性格和运势吉凶。</p>
+                        {% else %}
+                        <p>号码：<span class="color_red">{{qqnum}}</span></p>
+                            <p>{{result['desc']}}</p>
+                            <p>分数：{{result['score']}}</p>
+                            <p>吉凶：{{result['grade']}}</p>
+                            <p>签语：{{result['analysis']}}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            {% include "home/aside.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script>
+    function submitchecken() {
+        if (document.buyiju.qqtext.value == "") {
+            var alert1 = document.getElementsByClassName('alert')[0];
+            alert1.style.display = "";
+            document.buyiju.qqtext.focus();
+            return false;
+        }
+        if (/^[0-9]*$/.test(document.buyiju.qqtext.value)) {
+            return true;
+        } else {
+            var alert2 = document.getElementsByClassName('alert')[1];
+            alert2.style.display = "";
+            document.buyiju.qqtext.focus();
+            return false;
+        }
+    }
+    var inputqqtext = document.buyiju.qqtext;
+    inputqqtext.addEventListener('input', function () {
+        document.getElementsByClassName('alert')[0].style.display = "none";
+        document.getElementsByClassName('alert')[1].style.display = "none";
+    })
+</script> {% endblock %}

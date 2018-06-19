@@ -1,0 +1,62 @@
+.duanzi,.qqsm{
+    margin-top: 10px;
+}
+.duanzi_list_top p{
+    color: #999999;
+}
+.qqsm .title{
+    color: #222;
+    text-align: center;
+}
+.qqsm .title h2 {
+    font-size: 26px;
+    font-family: STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑;
+    margin: 15px auto;
+}
+.qqsm .inform {
+    width: 90%;
+    padding: 10px;
+    line-height: 40px;
+    background: #fff5ec;
+    border: 1px solid #fcc;
+    font-size: 16px;
+    color: #706A6A;
+    text-align: center;
+    margin: 6px auto;
+    overflow: hidden;
+}
+.qqsm .zbbtn2 {
+    font-size: 14px;
+    line-height: 100%;
+    color: #fff;
+    height: 25px;
+    width: 86px;
+    margin-top: 2px;
+    border: 0;
+    background: url(../images/cs_btn.png) no-repeat;
+    background-position: 0 -100px;
+    text-align: center;
+    cursor: pointer;
+}
+.qqsm .content {
+    font-size: 16px;
+    padding: 0px 25px 20px 25px;
+    line-height: 28px;
+    color: #252525;
+}
+.qqsm .cmint{
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    height: 22px;
+    color: #000000;
+}
+.color_red{
+    color: red;
+}

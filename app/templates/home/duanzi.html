@@ -1,0 +1,35 @@
+{% extends "home/main.html" %}{%block title %}笑一笑，十年少。{% endblock %}{% block slogan %}{{slogan}}{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static',filename='css/lssdjt.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/duanzi.css')}}">
+{% endblock %}
+{% block content %}
+{% import "ui/pages.html" as pg %}
+<div class="container duanzi">
+        <div class="row">
+            <div class="col-md-8">
+                {% for content in result %}
+                <div class="duanzi_list panel panel-default">
+                    <div class="duanzi_list_top panel-heading">
+                        <h3>{{content['title']}}</h3>
+                        <p>{{content['ct']}}</p>
+                    </div>
+                    <div class="duanzi_list_cont panel-body">
+                        <p>{{content['text']|safe}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="box-footer clearfix">
+                        {{pg.pager('/duanzi/list?query='+query, p.total, p.limit, p.curr_page)}}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {% include "home/aside.html" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+<script>
+    $('#main-menu ul li').eq(2).addClass("nav-current");
+</script>
+{% endblock %}

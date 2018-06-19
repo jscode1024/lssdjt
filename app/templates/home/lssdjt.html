@@ -1,0 +1,81 @@
+{% extends "home/main.html" %}{%block title %}以史为鉴{% endblock %} {% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/lyz.calendar.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/lssdjt.css')}}">
+<script src="{{url_for('static',filename='js/lyz.calendar.min.js')}}"></script> {% endblock %}{% block slogan %}以史为鉴，可以知兴替。{% endblock %}{% block content %}
+<div class="container lssdjt">
+    <div class="row">
+        <div class="col-md-12" id="lscalendar">
+            <form action="/lssdjt" method="post">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+                {{form.lssdjt}}
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="lssdjt_data">
+                <span>历史上
+                    <span id="date">{{month}}月{{day}}日</span>都发生了什么</span>
+            </div>
+            {% for list in result %}
+            <div class="lssdjt_item">
+                <div>
+                        <span class="lssdjt_item_year">{{list['year']}}年</span>
+                        <span class="lssdjt_item_title">{{list['title']}}</span>
+                </div>
+                {% if list['img'] %}
+                <img src="{{list['img']}}" alt="{{list['title']}}">
+                {% else %}
+                <img src="{{url_for('static',filename='images/zwtb.png')}}" >
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+           {% include "home/aside.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script type=text/javascript>
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+  </script>
+<script type="text/javascript">
+    $("#txtBeginDate").calendar({
+
+        controlId: "divDate",                                 // 弹出的日期控件ID，默认: $(this).attr("id") + "Calendar"
+
+        speed: 200,                                           // 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000),默认：200
+
+        complement: true,                                     // 是否显示日期或年空白处的前后月的补充,默认：true
+
+        readonly: true,                                       // 目标对象是否设为只读，默认：true
+
+        callback: function () {                               // 点击选择日期后的回调函数
+            var date= $("#txtBeginDate").val().split('-')[1]+$("#txtBeginDate").val().split('-')[2];
+            console.log("您选择的日期是：" + date);
+            location.href=$SCRIPT_ROOT+"/lssdjt/"+date;
+            /*
+             $.ajax({
+                type:"POST",
+                url:$SCRIPT_ROOT+"/lssdjt/api/"+date,
+                dataType:"json",
+                success:function(response){
+                    var str=response.list[0]['month']+'月'+response.list[0]['day']+'日';
+                    $('#date').text(str);
+                    console.log(response.list[0]['year']);
+                } 
+            }) 
+*/
+        }
+
+    });
+
+    $('#main-menu ul li').eq(1).addClass("nav-current");
+</script> {% endblock %}

@@ -1,0 +1,26 @@
+{% extends "home/main.html" %} {% block content %}
+<div class="container cuowu_cont">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="cuowu">
+                <img src="{{url_for('static',filename='images/cuowu_img.png')}}" alt="404错误">
+                <span>抱歉！您访问的页面失联啦...</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">光明面官方邮箱</div>
+                <div class="panel-body">
+                    brunetsheet@qq.com
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">关注光明面公众号</div>
+                <div class="panel-body">
+                    <img src="{{url_for('static',filename='images/gmm_ewm.jpg')}}" class="img-responsive center-block">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
